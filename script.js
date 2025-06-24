@@ -1,17 +1,56 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Auto-resize textarea
+  const staffSelect = document.getElementById("staffMember");
+  const roleSelect = document.getElementById("staffRole");
   const interactionsTextArea = document.getElementById("interactions");
+  const tooltip = document.createElement("div");
+  tooltip.className = "tooltip";
+  document.body.appendChild(tooltip);
+
+  // Load staff.json and populate dropdown
+  let staffList = [];
+  fetch("staff.json")
+    .then((res) => {
+      if (!res.ok) throw new Error("Failed to load staff.json");
+      return res.json();
+    })
+    .then((data) => {
+      staffList = data;
+      staffSelect.innerHTML = '<option value="">-- Select Staff Member --</option>';
+      staffList.forEach(({ name }) => {
+        const opt = document.createElement("option");
+        opt.value = name;
+        opt.textContent = name;
+        staffSelect.appendChild(opt);
+      });
+      roleSelect.innerHTML = '<option value="">Select a staff member first</option>';
+      roleSelect.disabled = true;
+    })
+    .catch((e) => {
+      staffSelect.innerHTML = '<option value="">Error loading staff</option>';
+      roleSelect.innerHTML = '<option value="">Error loading roles</option>';
+      roleSelect.disabled = true;
+      console.error(e);
+    });
+
+  // Auto-resize textarea
   interactionsTextArea.addEventListener("input", function () {
     this.style.height = "auto";
     this.style.height = this.scrollHeight + "px";
   });
 
-  // Create tooltip element
-  const tooltip = document.createElement("div");
-  tooltip.className = "tooltip";
-  document.body.appendChild(tooltip);
+  // When staff selected, update role dropdown with matching role
+  staffSelect.addEventListener("change", () => {
+    const selectedStaff = staffList.find((s) => s.name === staffSelect.value);
+    if (selectedStaff) {
+      roleSelect.disabled = false;
+      roleSelect.innerHTML = `<option value="${selectedStaff.role}">${selectedStaff.role}</option>`;
+      roleSelect.value = selectedStaff.role;
+    } else {
+      roleSelect.disabled = true;
+      roleSelect.innerHTML = '<option value="">Select a staff member first</option>';
+      roleSelect.value = "";
+    }
+  });
 
   // Split text into ≤1999-char parts without breaking words
   function splitByWords(text, maxLen = 1999) {
@@ -67,8 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const rawID = document.getElementById("discordID").value.replace(/\D/g, "") || "Nil";
     const mention = rawID !== "Nil" ? `<@${rawID}>` : "Nil";
     const interactions = document.getElementById("interactions").value || "Nil";
-    const staffMember = document.getElementById("staffMember").value || "Nil";
-    const staffRole = document.getElementById("staffRole").value || "Nil";
+    const staffMember = staffSelect.value || "Nil";
+    const staffRole = roleSelect.value || "Nil";
 
     const countBoxEl = document.getElementById("boxCount");
     countBoxEl.textContent = "";
