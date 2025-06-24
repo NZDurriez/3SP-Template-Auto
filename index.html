@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>3SP Template Generator</title>
   <link rel="stylesheet" href="style.css" />
-  <script>
-    function formatDiscordID() {
-      const input = document.getElementById("discordID");
-      input.value = input.value.replace(/\D/g, '');
-    }
-  </script>
 </head>
 <body>
   <div class="container">
@@ -19,12 +12,20 @@
 
     <div class="form-group">
       <label>Discord ID:</label>
-      <input type="text" id="discordID" placeholder="Enter Discord ID" oninput="formatDiscordID()" maxlength="20" />
+      <input
+        type="text"
+        id="discordID"
+        placeholder="Enter Discord ID"
+        maxlength="20"
+      />
     </div>
 
     <div class="form-group">
       <label>Summary of Staff Interactions:</label>
-      <textarea id="interactions" placeholder="Paste interaction history here"></textarea>
+      <textarea
+        id="interactions"
+        placeholder="Paste interaction history here"
+      ></textarea>
     </div>
 
     <div class="tally-box">
@@ -43,7 +44,7 @@
     <div class="form-group">
       <label>Your Role:</label>
       <select id="staffRole" disabled>
-        <option value="">Loading roles...</option>
+        <option value="">Select a staff member first</option>
       </select>
     </div>
 
@@ -58,10 +59,12 @@
     <button id="generate3SP">Generate</button>
     <div id="boxCount"></div>
 
-    <div id="fullOutputContainer" class="output-box" style="display:none;">
-      <div id="outputFull3SP" class="output"></div>
+    <!-- Nitro users see this single box -->
+    <div id="fullOutputContainer" class="output-box" style="display: none;">
+      <p id="outputFull3SP" class="output"></p>
     </div>
 
+    <!-- Dynamic boxes for non-Nitro users -->
     <div id="shortOutputsContainer"></div>
   </div>
 
