@@ -1,5 +1,9 @@
 [
   {
+    "name": "OnSmoko",
+    "role": "Administrator"
+  },
+  {
     "name": "Pandakazii",
     "role": "Director"
   },
@@ -41,10 +45,6 @@
   },
   {
     "name": "Kuzin",
-    "role": "Administrator"
-  },
-  {
-    "name": "OnSmoko",
     "role": "Administrator"
   },
   {
