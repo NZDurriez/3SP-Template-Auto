@@ -2,88 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ban Appeal Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3SP Template Generator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <center><h1>Ban Appeal Generator</h1></center>
-    <form id="qp-form">
-      <label for="ingame-name">Ingame Name:</label>
-      <input type="text" id="ingame-name" name="ingame-name" />
+    <h2 class="title">3SP Template Generator</h2>
 
-      <label for="discord">Discord:</label>
-      <input type="text" id="discord" name="discord" />
-
-      <div class="date-wrapper">
-        <label for="appeal-date">Date of Appeal:</label>
-        <input type="date" id="appeal-date" name="appeal-date" />
-      </div>
-
-      <label for="ban-id">Ban ID & Reason:</label>
-      <input type="text" id="ban-id" name="ban-id" />
-
-      <label for="ticket-id">Ticket ID:</label>
-      <input type="text" id="ticket-id" name="ticket-id" />
-
-      <label for="outcome">Outcome:</label>
-      <select id="outcome" name="outcome">
-        <option value="" disabled selected hidden>-- Select an option --</option>
-        <option value="Appeal Successful">Appeal Successful</option>
-        <option value="Appeal Denied">Appeal Denied</option>
-      </select>
-
-      <label for="staff-member">Staff Member:</label>
-      <select id="staff-member" name="staff-member">
-        <option value="" disabled selected hidden>-- Select a staff member --</option>
-      </select>
-
-      <label for="notes">Notes:</label>
-      <textarea id="notes" name="notes"></textarea>
-
-      <label for="logged-tx">Logged in TX if successful:</label>
-      <select id="logged-tx" name="logged-tx">
-        <option value="" disabled selected hidden>-- Select an option --</option>
-        <option value="Yes">Yes</option>
-        <option value="N/A">N/A</option>
-      </select>
-
-      <button type="submit">Generate</button>
-    </form>
-
-    <div id="output-container" class="output-container hidden">
-      <h2>Generated Output</h2>
-      <pre id="output"></pre>
-      <button id="copy-btn">Copy to Clipboard</button>
+    <div class="form-group">
+      <label>Discord ID:</label>
+      <input
+        type="text"
+        id="discordID"
+        placeholder="Enter Discord ID"
+        maxlength="20"
+      />
     </div>
+
+    <div class="form-group">
+      <label>Summary of Staff Interactions:</label>
+      <textarea
+        id="interactions"
+        placeholder="Paste interaction history here"
+      ></textarea>
+    </div>
+
+    <div class="tally-box">
+      <div class="tally-item tally-kick">Kicks: <span id="kickCount">0</span></div>
+      <div class="tally-item tally-warn">Warns: <span id="warnCount">0</span></div>
+      <div class="tally-item tally-ban">Bans: <span id="banCount">0</span></div>
+    </div>
+
+    <div class="form-group">
+      <label>Staff Member:</label>
+      <select id="staffMember">
+        <option value="">Loading staff...</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Your Role:</label>
+      <select id="staffRole" disabled>
+        <option value="">Select a staff member first</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Discord Nitro:</label>
+      <select id="discordNitro">
+        <option value="yes">I have Discord Nitro</option>
+        <option value="no">I do not have Discord Nitro</option>
+      </select>
+    </div>
+
+    <button id="generate3SP">Generate</button>
+    <div id="boxCount"></div>
+
+    <!-- Nitro users see this single box -->
+    <div id="fullOutputContainer" class="output-box" style="display: none;">
+      <p id="outputFull3SP" class="output"></p>
+    </div>
+
+    <!-- Dynamic boxes for non-Nitro users -->
+    <div id="shortOutputsContainer"></div>
   </div>
-
-  <script>
-    // Make clicking the date-wrapper focus the date input
-    document.addEventListener('DOMContentLoaded', () => {
-      const dateWrapper = document.querySelector('.date-wrapper');
-      const dateInput = document.getElementById('appeal-date');
-
-      dateWrapper.addEventListener('click', () => {
-        dateInput.showPicker?.() || dateInput.focus();
-      });
-
-      // Populate staff member dropdown from staff.json (name only)
-      fetch('staff.json')
-        .then(response => response.json())
-        .then(data => {
-          const staffDropdown = document.getElementById('staff-member');
-          data.forEach(entry => {
-            const option = document.createElement('option');
-            option.value = entry.name;
-            option.textContent = entry.name;
-            staffDropdown.appendChild(option);
-          });
-        })
-        .catch(error => console.error('Failed to load staff.json:', error));
-    });
-  </script>
 
   <script src="script.js"></script>
 </body>
