@@ -161,8 +161,7 @@ Given the frequency of these interactions, the staff team has unanimously decide
 - Strike 2: 3 Day Ban | Subject to a longer ban 
 - Strike 3: Permanent Ban
 
-In the event that you receive a third strike resulting in a Permanent Ban, you will have the opportunity to appeal this by **[creating a ban appeal ticket](https://discord.com/channels/815563382211739670/943801829777612860)** after 3 months from the ban date. 
-Ban appeals are reviewed periodically during the staff's available time, and immediate unbanning is not guaranteed.
+In the event that you receive a third strike resulting in a Permanent Ban, you will have the opportunity to appeal this by **[creating a ban appeal ticket](https://discord.com/channels/815563382211739670/943801829777612860)** after 3 months from the ban date. Ban appeals are reviewed periodically during the staff's available time, and immediate unbanning is not guaranteed.
 
 **Working towards Coming Off 3SP:**
 We believe in second chances and positive change within our community. You can work towards coming off 3SP and returning to a normal stature within the community by demonstrating consistent good behaviour and adherence to the server rules and guidelines. Engaging in positive roleplay, respecting fellow players and staff members, and actively contributing to a welcoming and enjoyable gaming environment.
