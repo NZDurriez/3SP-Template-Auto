@@ -157,9 +157,9 @@ Due to these interactions, the Beehive Staff Team now require an immediate adjus
 Given the frequency of these interactions, the staff team has unanimously decided to implement a Three Strike Policy (3SP) effective immediately. Any staff interaction that violates the server rules/guidelines will be considered a "strike," and any staff member is authorized to issue Strikes 1 & 2. The consequences for strikes become progressively more severe, as outlined below:
 
 **Three Strike Policy:**
-- Strike 1: 1 Day Ban | Subject to a longer ban 
-- Strike 2: 3 Day Ban | Subject to a longer ban 
-- Strike 3: Permanent Ban *These must be Authorized by a Manager or higher*
+- Strike 1: 1 Day Ban | *Subject to a longer ban* 
+- Strike 2: 3 Day Ban | *Subject to a longer ban* 
+- Strike 3: Permanent Ban | *These must be Authorized by a Manager or higher*
 
 In the event that you receive a third strike resulting in a Permanent Ban, you will have the opportunity to appeal this by **[creating a ban appeal ticket](https://discord.com/channels/815563382211739670/943801829777612860)** after 3 months from the ban date. Ban appeals are reviewed periodically during the staff's available time, and immediate unbanning is not guaranteed.
 
