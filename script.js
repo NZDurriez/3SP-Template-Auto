@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load staff.json and populate dropdown
   let staffList = [];
-  fetch("staff.json")
+  fetch("https://nzdurriez.github.io/SharedData/staff.json")
     .then((res) => {
       if (!res.ok) throw new Error("Failed to load staff.json");
       return res.json();
